@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persona", "Persona\Persona.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdivinarNumero", "AdivinarNumero\AdivinarNumero.csproj", "{45292EBB-6B91-4458-BF4E-CEBC241A746A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArraqueJuego", "ArraqueJuego\ArraqueJuego.csproj", "{BF5B46CC-077A-4FD3-935C-BD2155A15ECB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{45292EBB-6B91-4458-BF4E-CEBC241A746A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{45292EBB-6B91-4458-BF4E-CEBC241A746A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{45292EBB-6B91-4458-BF4E-CEBC241A746A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF5B46CC-077A-4FD3-935C-BD2155A15ECB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF5B46CC-077A-4FD3-935C-BD2155A15ECB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF5B46CC-077A-4FD3-935C-BD2155A15ECB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF5B46CC-077A-4FD3-935C-BD2155A15ECB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

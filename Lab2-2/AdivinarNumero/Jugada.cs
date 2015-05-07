@@ -24,5 +24,17 @@ namespace AdivinarNumero
             Random rnd = new Random();
             Numero = rnd.Next(maxNumero);
         }
+
+        public void Comparar(int numero)
+        {
+            /*
+             Con este metodo comparo los valores de cada jugada.
+             */
+            
+            if(numero == Numero){
+                Adivino = true;
+            }
+            _intentos++;
+        }
     }
 }
