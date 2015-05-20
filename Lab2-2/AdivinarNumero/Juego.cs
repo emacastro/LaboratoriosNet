@@ -19,11 +19,11 @@ namespace AdivinarNumero
              Este método es el controlador.
              */
             int maximo = PreguntarMaximo();
-            Jugada jugada = new Jugada(maximo);
+            JugadaConAyuda jugada = new JugadaConAyuda(maximo);
             bool continuar = true;
             do{
                 int numero = PreguntarNumero();
-                if (jugada.Adivino)
+                if (jugada.Comparar(numero))
                 {
                     Console.WriteLine("Felicidades! Adivinó el número.");
                     Console.WriteLine("El numero era: " + jugada.Numero);

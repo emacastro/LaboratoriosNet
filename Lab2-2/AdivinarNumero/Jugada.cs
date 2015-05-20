@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AdivinarNumero
 {
-    class Jugada
+    internal class Jugada
     {
         bool _adivino;
         int _intentos;
@@ -25,7 +25,7 @@ namespace AdivinarNumero
             Numero = rnd.Next(maxNumero);
         }
 
-        public void Comparar(int numero)
+        public virtual bool Comparar(int numero)
         {
             /*
              Con este metodo comparo los valores de cada jugada.
@@ -34,7 +34,12 @@ namespace AdivinarNumero
             if(numero == Numero){
                 Adivino = true;
             }
+            else
+            {
+                Adivino = false;
+            }
             _intentos++;
+            return this.Adivino;
         }
     }
 }

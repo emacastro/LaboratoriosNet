@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{45292EBB-6B91-4458-BF4E-CEBC241A746A}</ProjectGuid>
+    <ProjectGuid>{E567A3A9-139C-48F9-A01E-CBB29E86DCF3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AdivinarNumero</RootNamespace>
-    <AssemblyName>AdivinarNumero</AssemblyName>
+    <RootNamespace>Business.Entities</RootNamespace>
+    <AssemblyName>Business.Entities</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -39,13 +39,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Juego.cs" />
-    <Compile Include="Jugada.cs" />
-    <Compile Include="JugadaConAyuda.cs" />
+    <Compile Include="BusinessEntity.cs" />
+    <Compile Include="Modulo.cs" />
+    <Compile Include="ModuloUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="DiagramaAdivinanza.cd" />
+    <Compile Include="Usuario.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
