@@ -8,6 +8,7 @@ namespace Business.Entities
 {
     public class BusinessEntity
     {
+        int _ID;
         enum States
         {
             New,
@@ -16,7 +17,8 @@ namespace Business.Entities
             Deleted
         }
 
-        public int ID { get; set; }
+        public int ID { get { return _ID; } 
+                        set { _ID = value; } }
         public States State { get;set;}
 
         public BusinessEntity()
