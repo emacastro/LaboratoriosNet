@@ -9,7 +9,7 @@ namespace AdivinarNumero
     internal class Jugada
     {
         bool _adivino;
-        int _intentos;
+        int _intentos = 0;
         int _numero;
         public int Numero
         {
@@ -31,15 +31,15 @@ namespace AdivinarNumero
              Con este metodo comparo los valores de cada jugada.
              */
             
-            if(numero == Numero){
-                Adivino = true;
+            if(numero == _numero){
+                _adivino = true;
             }
             else
             {
-                Adivino = false;
+                _adivino = false;
             }
             _intentos++;
-            return this.Adivino;
+            return this._adivino;
         }
     }
 }

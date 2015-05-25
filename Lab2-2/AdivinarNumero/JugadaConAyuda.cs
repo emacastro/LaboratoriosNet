@@ -21,17 +21,17 @@ namespace AdivinarNumero
             }
             else
             {
-                if ((Numero - numero) >= 100 && numero > Numero)
+                if ((Numero - numero) >= 100)
                 {
                     Console.WriteLine("Estás muy lejos!");
                 }
-                else if (numero > Numero && (Numero - numero) <= 5)
+                else if ((Numero - numero) <= 5)
                 {
                     Console.WriteLine("Estás cerca!");
                 }
                 Adivino = false;
             }
-            Intentos++;
+            Intentos+=1;
             return this.Adivino;
         }
     }

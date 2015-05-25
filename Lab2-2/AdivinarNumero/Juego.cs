@@ -18,33 +18,45 @@ namespace AdivinarNumero
             /*
              Este método es el controlador.
              */
+            bool inicio = true;
             int maximo = PreguntarMaximo();
             JugadaConAyuda jugada = new JugadaConAyuda(maximo);
-            bool continuar = true;
+            bool continuar;
             do{
                 int numero = PreguntarNumero();
                 if (jugada.Comparar(numero))
                 {
                     Console.WriteLine("Felicidades! Adivinó el número.");
                     Console.WriteLine("El numero era: " + jugada.Numero);
-                    CompararRecord(jugada.Intentos);
+                    CompararRecord(jugada.Intentos, inicio);                    
+                    continuar = false;
                 }
                 else
                 {
                     Console.WriteLine("No es el número correcto. Vuelva a intentarlo.");
+                    continuar = Continuar();
                 }
-                continuar = Continuar();
             } while (continuar); 
         }
 
-        private void CompararRecord(int intentos)
+        private void CompararRecord(int intentos, bool primero)
         {
             /*
              Compara si la cantidad de intentos es menor al record, avisa si lo superó.
              */
-            if(intentos>_record){
-                Console.WriteLine("Felicidades! Consiguió un nuevo record con " + intentos + " intentos!");
+            if (primero == true)
+            {
                 _record = intentos;
+                Console.WriteLine("Felicidades! Consiguió un nuevo record con " + _record + " intentos!");
+                primero = false;
+            }
+            else
+            {
+                if (intentos < _record)
+                {
+                    Console.WriteLine("Felicidades! Consiguió un nuevo record con " + intentos + " intentos!");
+                    _record = intentos;
+                }
             }
         }
         private bool Continuar()
@@ -59,14 +71,9 @@ namespace AdivinarNumero
                 if(rta.Equals("s", StringComparison.InvariantCultureIgnoreCase)){
                     continuar = true;
                 }
-                else if(rta.Equals("n",StringComparison.InvariantCultureIgnoreCase)){
+                else {
                     continuar = false;
                 }
-                else
-                {
-                    Console.WriteLine("Se presionó otra tecla, vuelva a intentarlo.");
-                }
-            
             return continuar;
         }
         private int PreguntarMaximo()
@@ -74,9 +81,9 @@ namespace AdivinarNumero
             /*
              Pregunta al usuario qué numero máximo usar para adivinar.
              */
-            Console.WriteLine("Qué número máximo elige para adivinar?");
-            int maximo = Int32.Parse(Console.ReadLine());
-            return maximo;
+             Console.WriteLine("Qué número máximo elige para adivinar?");
+             int maximo = Int32.Parse(Console.ReadLine());
+             return maximo;
         }
 
         private int PreguntarNumero()
