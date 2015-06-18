@@ -64,6 +64,48 @@ namespace LabGrilla
 
             this.dgvUsuarios.Columns.Add(colTipoDoc);
 
+            DataGridViewTextBoxColumn colTel = new DataGridViewTextBoxColumn();
+            colTel.Name = "telefono";
+            colTel.HeaderText = "Telefono";
+            colTel.DataPropertyName = "telefono";
+
+            DataGridViewTextBoxColumn colEmail = new DataGridViewTextBoxColumn();
+            colEmail.Name = "email";
+            colEmail.HeaderText = "Email";
+            colEmail.DataPropertyName = "email";
+
+            DataGridViewTextBoxColumn colCel = new DataGridViewTextBoxColumn();
+            colCel.Name = "celular";
+            colCel.HeaderText = "Celular";
+            colCel.DataPropertyName = "celular";
+
+            DataGridViewTextBoxColumn colUsuario = new DataGridViewTextBoxColumn();
+            colUsuario.Name = "usuario";
+            colUsuario.HeaderText = "Usuario";
+            colUsuario.DataPropertyName = "usuario";
+
+            DataGridViewTextBoxColumn colClave = new DataGridViewTextBoxColumn();
+            colClave.Name = "clave";
+            colClave.HeaderText = "Clave";
+            colClave.DataPropertyName = "clave";
+
+            colEmail.Width = 250;
+            colNroDoc.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            colClave.Visible = false;
+
+            this.dgvUsuarios.Columns["direccion"].Width = 250;
+            this.dgvUsuarios.Columns["apellido"].DefaultCellStyle.Font =
+            new Font(this.dgvUsuarios.DefaultCellStyle.Font, FontStyle.Bold);
+            this.dgvUsuarios.Columns["nombre"].DefaultCellStyle.Font =
+            new Font(this.dgvUsuarios.DefaultCellStyle.Font, FontStyle.Bold);
+            this.dgvUsuarios.Columns["fecha_nac"].DefaultCellStyle.Alignment =DataGridViewContentAlignment.MiddleRight;
+
+
+            this.dgvUsuarios.Columns.Add(colTel);
+            this.dgvUsuarios.Columns.Add(colEmail);
+            this.dgvUsuarios.Columns.Add(colUsuario);
+            this.dgvUsuarios.Columns.Add(colClave);
+
         }
         private DataTable getTiposDocumento()
         {
