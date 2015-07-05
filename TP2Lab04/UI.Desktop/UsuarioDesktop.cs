@@ -87,7 +87,80 @@ namespace UI.Desktop
             UsuarioActual.NombreUsuario = this.txtUsuario.Text;
             UsuarioActual.Clave = this.txtClave.Text;
         }
-        public override void GuardarCambios() { }
-        public override bool Validar() { return false; }
+        public override void GuardarCambios() 
+        {
+            MapearADatos();
+            UsuarioLogic ulogic = new UsuarioLogic();
+            if (Modo == ModoForm.Baja)
+            {
+                ulogic.Delete(UsuarioActual.ID);
+            }
+            else if (Modo == ModoForm.Alta || Modo == ModoForm.Modificacion)
+            {
+                ulogic.Save(UsuarioActual);
+            }
+        }
+        public override bool Validar() 
+        {
+            bool valido = true;
+            string mensaje = "";
+            if (this.txtNombre.Text == "")
+            {
+                mensaje += "El nombre no puede ser vacío.\n";
+            }
+            if (this.txtApellido.Text == "")
+            {
+                mensaje += "El apellido no puede ser vacío.\n";
+            }
+            if (this.txtEmail.Text == "")
+            {
+                mensaje += "El email no puede ser vacío.\n";
+            }
+            if (this.txtUsuario.Text == "")
+            {
+                mensaje += "El nombre de usuario no puede ser vacío.\n";
+            }
+            if (this.txtClave.Text == "")
+            {
+                mensaje += "La clave no puede estar vacía.\n";
+            }
+            if (this.txtConfirmarClave.Text == "")
+	        {
+                mensaje += "La confirmación de clave no puede estar vacía.\n";
+	        }
+            /*if (this.lblClave.Text.Length < 8)
+            {
+                mensaje += "La clave no puede contener menos de 8 digitos.\n";
+            }*/
+            if (this.txtConfirmarClave.Text.Equals(this.lblClave.Text))
+        	{
+		        mensaje += "La confirmación debe ser igual a la clave.\n";
+	        }
+            
+            if (this.lblClave.Text.Contains("@"))
+            {
+                mensaje += "El mail debe contener el caracter @";
+            }
+            if (mensaje != "")
+            {
+                Notificar(mensaje, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                valido = false;
+            }
+            return valido; 
+        }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            if (Validar())
+            {
+                GuardarCambios();
+                this.Close();
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
