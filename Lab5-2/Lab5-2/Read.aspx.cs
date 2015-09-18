@@ -11,7 +11,11 @@ namespace Lab5_2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["inputText"] == null)
+            {
+                Session["inputText"] = "";
+            }
+            Label1.Text = string.Format("inputText en sesión: '{0}'",Session["inputText"].ToString());
         }
     }
 }
